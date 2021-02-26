@@ -12,7 +12,7 @@ namespace DZ3_Cycles
             int numberOdd;
             int tmp;
             int tmp2;
-            int tmp3;
+            int tmp3;       
             
             // 1. Пользователь вводит 2 числа (A и B). Возвести число A в степень B.
             Console.WriteLine("Первое задание");
@@ -121,24 +121,39 @@ namespace DZ3_Cycles
             numberB = Convert.ToInt32(Console.ReadLine());
 
             int numberGCF = 0;
-            while (numberGCF == 0)
+            if (numberA == numberB)
             {
-                if (numberA != numberB)
-                {
-                    if (numberA > numberB)
+                for (int i = numberA - 1; i > 0; i--)
                     {
-                        numberA -= numberB;
+                        if (numberA % i == 0)
+                        {
+                            numberGCF = i;
+                            break;
+                        }
+                    }
+            }
+            else
+            {
+                while (numberGCF == 0)
+                {
+                    if (numberA != numberB)
+                    {
+                        if (numberA > numberB)
+                        {
+                            numberA -= numberB;
+                        }
+                        else
+                        {
+                            numberB -= numberA;
+                        }
                     }
                     else
                     {
-                        numberB -= numberA;
+                        numberGCF = numberA;
                     }
                 }
-                else
-                {
-                    numberGCF = numberA;
-                }
             }
+            
             Console.WriteLine("Ответ на седьмое задание: " + numberGCF);
 
             // 8. Пользователь вводит целое положительное число, которое является кубом целого числа N. Найдите число N методом половинного деления.
@@ -148,7 +163,7 @@ namespace DZ3_Cycles
             numberN = 1;
             tmp = numberA;
             tmp2 = numberN - numberA;
-            // numberN = numberA / numberN / numberN;
+            
             while (numberA != numberN * numberN * numberN)
             {                        
                 if (tmp * tmp * tmp > numberA)
@@ -282,9 +297,7 @@ namespace DZ3_Cycles
             else
             {
                 Console.WriteLine("Нет");
-            }
-            
-
+            }            
         }
     }
 }
