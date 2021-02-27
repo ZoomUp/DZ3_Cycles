@@ -219,7 +219,7 @@ namespace DZ3_Cycles
             Console.WriteLine("Ответ на десятое задание: " + tmp);
 
             // 11. Пользователь вводит целое положительное  число (N). Выведите числа в диапазоне от 1 до N, сумма четных цифр которых больше суммы нечетных. 
-            Console.WriteLine("Десятое задание");
+            Console.WriteLine("Одиннадцатое задание");
             Console.WriteLine("Введите число N");
             numberN = Convert.ToInt32(Console.ReadLine());
             int numberSumOdd;
