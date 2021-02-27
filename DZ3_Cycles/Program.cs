@@ -80,17 +80,23 @@ namespace DZ3_Cycles
             tmp = 0;
             if (numberA > numberB)
             {
-                for (int i = numberA - 1; i > numberB; i--)
+                for (int i = numberA; i >= numberB; i--)
                 {
-                    tmp += i;
+                    if (i % 7 == 0)
+                    {
+                        tmp += i;
+                    }                    
                 }
                 Console.WriteLine("Ответ на пятое задание: " + tmp);
             }
             if (numberA < numberB)
             {
-                for (int i = numberB - 1; i > numberA; i--)
+                for (int i = numberB; i >= numberA; i--)
                 {
-                    tmp += i;
+                    if (i % 7 == 0)
+                    {
+                        tmp += i;
+                    }                    
                 }
                 Console.WriteLine("Ответ на пятое задание: " + tmp);
             }
