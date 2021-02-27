@@ -12,8 +12,8 @@ namespace DZ3_Cycles
             int numberOdd;
             int tmp;
             int tmp2;
-            int tmp3;       
-            
+            int tmp3;
+
             // 1. Пользователь вводит 2 числа (A и B). Возвести число A в степень B.
             Console.WriteLine("Первое задание");
             Console.WriteLine("Введите число A");
@@ -48,7 +48,7 @@ namespace DZ3_Cycles
             Console.WriteLine("Третье задание");
             Console.WriteLine("Введите число A");
             numberA = Convert.ToInt32(Console.ReadLine());
-            
+
             for (int i = 1; i * i < numberA; i++)
             {
                 tmp = i;
@@ -68,7 +68,7 @@ namespace DZ3_Cycles
                     break;
                 }
             }
-            
+
 
             // 5. Пользователь вводит 2 числа (A и B). Вывести сумму всех чисел из диапазона от A до B, которые делятся без остатка на 7. (Учтите, что при вводе B может оказаться меньше A).
 
@@ -94,7 +94,7 @@ namespace DZ3_Cycles
                 }
                 Console.WriteLine("Ответ на пятое задание: " + tmp);
             }
-            
+
 
             // 6. Пользователь вводит 1 число (N). Выведите N-ое число ряда фибоначчи. В ряду фибоначчи каждое следующее число является суммой двух предыдущих. Первое и второе считаются равными 1.
             Console.WriteLine("Шестое задание");
@@ -102,7 +102,7 @@ namespace DZ3_Cycles
             numberN = Convert.ToInt32(Console.ReadLine());
             int tmp1 = 1;
             tmp2 = 1;
-            int numberFibonacci = 0;
+            int numberFibonacci = 1;
 
             for (int i = 2; i < numberN; i++)
             {
@@ -110,7 +110,7 @@ namespace DZ3_Cycles
                 tmp1 = tmp2;
                 tmp2 = numberFibonacci;
             }
-            
+
             Console.WriteLine("Ответ на шестое задание: " + numberFibonacci);
 
             // 7. Пользователь вводит 2 числа. Найти их наибольший общий делитель используя алгоритм Евклида.
@@ -124,13 +124,13 @@ namespace DZ3_Cycles
             if (numberA == numberB)
             {
                 for (int i = numberA - 1; i > 0; i--)
+                {
+                    if (numberA % i == 0)
                     {
-                        if (numberA % i == 0)
-                        {
-                            numberGCF = i;
-                            break;
-                        }
+                        numberGCF = i;
+                        break;
                     }
+                }
             }
             else
             {
@@ -153,7 +153,7 @@ namespace DZ3_Cycles
                     }
                 }
             }
-            
+
             Console.WriteLine("Ответ на седьмое задание: " + numberGCF);
 
             // 8. Пользователь вводит целое положительное число, которое является кубом целого числа N. Найдите число N методом половинного деления.
@@ -162,28 +162,30 @@ namespace DZ3_Cycles
             numberA = Convert.ToInt32(Console.ReadLine());
             numberN = 1;
             tmp = numberA;
-            tmp2 = numberN - numberA;
-            
+            tmp2 = 0;
+
             while (numberA != numberN * numberN * numberN)
-            {                        
-                if (tmp * tmp * tmp > numberA)
+            {
+                if (tmp > numberA / tmp / tmp)
                 {
-                    tmp /= 2;
                     tmp2 = tmp;
+                    tmp /= 2;
+
                 }
-                else if (tmp * tmp * tmp < numberA)
+                else if (tmp < numberA / tmp / tmp)
                 {
                     tmp = tmp2 + tmp;
                 }
                 else
                 {
                     numberN = tmp;
+                    break;
                 }
             }
             Console.WriteLine("Ответ на восьмое задание: " + numberN);
 
 
-            
+
             // 9. Пользователь вводит 1 число. Найти количество нечетных цифр этого числа.
             Console.WriteLine("Девятое задание");
             Console.WriteLine("Введите число A");
@@ -226,7 +228,7 @@ namespace DZ3_Cycles
             int numberSumEven;
 
             Console.WriteLine("Ответ на одиннадцатое задание: ");
-            for (int i = 1; i < numberN +1; i++)
+            for (int i = 1; i < numberN + 1; i++)
             {
                 int j = i;
                 numberSumOdd = 0;
@@ -243,8 +245,8 @@ namespace DZ3_Cycles
                     {
                         numberSumEven += tmp;
                     }
-                    
-                    
+
+
                 }
                 if (numberSumEven > numberSumOdd)
                 {
@@ -266,7 +268,7 @@ namespace DZ3_Cycles
                 numberA = numberB;
                 numberB = tmp;
             }
-            
+
 
             while (numberA / 10 > 0 || numberA % 10 > 0)
             {
@@ -288,7 +290,7 @@ namespace DZ3_Cycles
                     numberCounter++;
                     break;
                 }
-                
+
             }
             if (numberCounter > 0)
             {
@@ -297,7 +299,9 @@ namespace DZ3_Cycles
             else
             {
                 Console.WriteLine("Нет");
-            }            
+            }
+
         }
+
     }
 }
