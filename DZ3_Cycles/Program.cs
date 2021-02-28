@@ -22,12 +22,30 @@ namespace DZ3_Cycles
             numberB = Convert.ToInt32(Console.ReadLine());
             tmp = numberA;
 
-
-            for (int i = 1; i < numberB; i++)
+            if (numberB > 0)
             {
-                numberA *= tmp;
+                for (int i = 1; i < numberB; i++)
+                {
+                    numberA *= tmp;
+                }
+                Console.WriteLine("Ответ на первое задание: " + numberA);
+                
             }
-            Console.WriteLine("Ответ на первое задание: " + numberA);
+            else if (numberB < 0)
+            {
+                for (int i = -1; i > numberB; i--)
+                {
+                    numberA *= tmp;
+                }
+                Console.WriteLine("Ответ на первое задание: " + 1 / (double)numberA);
+            }
+            else
+            {
+                Console.WriteLine("Ответ на первое задание: " + 1 );
+            }
+
+           
+            
 
             // 2. Пользователь вводит 1 число (A). Вывести все числа от 1 до 1000, которые делятся на A.
             Console.WriteLine("Второе задание");
@@ -214,7 +232,12 @@ namespace DZ3_Cycles
             Console.WriteLine("Введите число A");
             numberA = Convert.ToInt32(Console.ReadLine());
             tmp = 0;
-
+            tmp2 = 1;
+            if (numberA < 0)
+            {
+                tmp2 = -1;
+            }
+            numberA = Math.Abs(numberA);
             while (numberA / 10 > 0 || numberA % 10 > 0)
             {
                 tmp = numberA % 10 + tmp;
@@ -224,7 +247,8 @@ namespace DZ3_Cycles
                     tmp *= 10;
                 }
             }
-            Console.WriteLine("Ответ на десятое задание: " + tmp);
+
+            Console.WriteLine("Ответ на десятое задание: " + tmp*tmp2);
 
             // 11. Пользователь вводит целое положительное  число (N). Выведите числа в диапазоне от 1 до N, сумма четных цифр которых больше суммы нечетных. 
             Console.WriteLine("Одиннадцатое задание");
@@ -306,7 +330,6 @@ namespace DZ3_Cycles
             {
                 Console.WriteLine("Нет");
             }
-
         }
 
     }
